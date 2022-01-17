@@ -51,7 +51,7 @@ class Saxon (Soldier):
 # War
 
 
-class War():  ### NOTA Para esta clase me salen 25 errores. No los he podido encontrar; lo dejo planteado.
+class War():  ### NOTA Para esta clase me salen 25 errores. Por las descripciones de los errores; no soy capaz de encontrar los errores.
     import random as rd
     def __init__(self):
         vikingArmy = []
@@ -63,15 +63,15 @@ class War():  ### NOTA Para esta clase me salen 25 errores. No los he podido enc
         self.saxonArmy.append(Saxon)
         pass
     def vikingAttack(self):
-        vka = rd.choice(self.VikingArmy)
+        vka = rd.choice(self.VikingArmy) # We select randomly a viking
         saa = rd.choice(self.saxonArmy)
-        rda = saa.receiveDamage(vka.strenght)
-        if saa.health <= 0:
+        rda = saa.receiveDamage(vka.strenght) # Received damaged by a Saxon depends on Viking strength.
+        if saa.health <= 0: #If died we remove a Saxon
             saxonArmy.remove(saa)
         else:
             pass
         return [rda, vka.strenght]
-    def saxonAttack(self):
+    def saxonAttack(self): # This function is simislar to the previous function.
         vka = rd.choice(self.VikingArmy)
         saa = rd.choice(self.saxonArmy)
         rda = vka.receiveDamage(saa.strenght)
