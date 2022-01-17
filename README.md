@@ -162,7 +162,7 @@ Modify the `Soldier` constructor function and add 2 methods to its prototype: `a
 - should remove the received damage from the `health` property
 - **shouldn't return** anything
 
----
+
 
 ### Viking
 
