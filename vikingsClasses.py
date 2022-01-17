@@ -52,4 +52,23 @@ class Saxon (Soldier):
 
 
 class War:
-    pass
+import random as rd
+    def __init__(self):
+        vikingArmy = []
+        saxonArmy = []
+    def addViking(self, Viking):
+        self.VikingArmy.append(Viking)
+        pass
+    def addSaxon(self, Saxon):
+        self.saxonArmy.append(Saxon)
+        pass
+    def vikingAttack(self):
+        vka = rd.choice(self.VikingArmy)
+        saa = rd.choice(self.saxonArmy)
+        rda = saa.receiveDamage(self.VikingArmy)
+        if saa.health <= 0:
+        
+
+
+
+
