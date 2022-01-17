@@ -26,7 +26,7 @@ class Viking(Soldier):
     def receiveDamage(self,damage):
         self.damage = damage
         self.health = self.health - self.damage
-        if self.health>0:
+        if self.health > 0:
             return (f"{self.name} has received {self.damage} points of damage")
         else:
             return  (f"{self.name} has died in act of combat")
@@ -45,13 +45,13 @@ class Saxon(Soldier):
     def receiveDamage(self,damage):
         self.damage = damage
         self.health = self.health - self.damage
-        if self.health>0:
+        if self.health > 0:
             return (f"A Saxon has received {self.damage} points of damage")
         else:
-                return  (f"A Saxon has died in combat")
+            return  (f"A Saxon has died in combat")
     
 # War
-import random as rd
+import random 
 
 class War():
     def __init__(self):
@@ -67,20 +67,26 @@ class War():
         self.saxonArmy.append(self.addsaxon)
 
     def vikingAttack(self):
-        self.sax = rd.choice(self.saxonArmy)
-        self.vik = rd.choice(self.vikingArmy)
-
-        self.damage_sx = self.sax.receiveDamage(vik)
-        return self.damage_sx
+        self.sax = random.choice(self.saxonArmy)
+        self.vik = random.choice(self.vikingArmy)
+        self.damageSax = self.sax.receiveDamage(self.vik.attack())
+        if self.sax.health <= 0:
+            self.saxonArmy.remove(self.sax)
+        return self.damageSax 
 
     def saxonAttack(self):
-        self.damage_vk = self.vik.receiveDamage()
-        return self.damage_vk      
+        self.sax = random.choice(self.saxonArmy)
+        self.vik = random.choice(self.vikingArmy)
+        self.damageVik = self.vik.receiveDamage(self.sax.attack())
+        if self.vik.health <= 0:
+            self.vikingArmy.remove(self.vik)
+        return self.damageVik    
 
     def showStatus(self):
         if len(self.saxonArmy) == 0:
             return (f"Vikings have won the war of the century!")
         elif len(self.vikingArmy) == 0:
-            return (f"Saxons have fought for their lives and survive another day..")
+            return (f"Saxons have fought for their lives and survive another day...")
         else:
+            len(self.saxonArmy)>0 and len(self.vikingArmy)>0
             return (f"Vikings and Saxons are still in the thick of battle.")
