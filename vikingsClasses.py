@@ -51,8 +51,8 @@ class Saxon (Soldier):
 # War
 
 
-class War:
-import random as rd
+class War():  ### NOTA Para esta clase me salen 25 errores. No los he podido encontrar; lo dejo planteado.
+    import random as rd
     def __init__(self):
         vikingArmy = []
         saxonArmy = []
@@ -65,9 +65,30 @@ import random as rd
     def vikingAttack(self):
         vka = rd.choice(self.VikingArmy)
         saa = rd.choice(self.saxonArmy)
-        rda = saa.receiveDamage(self.VikingArmy)
+        rda = saa.receiveDamage(vka.strenght)
         if saa.health <= 0:
-        
+            saxonArmy.remove(saa)
+        else:
+            pass
+        return [rda, vka.strenght]
+    def saxonAttack(self):
+        vka = rd.choice(self.VikingArmy)
+        saa = rd.choice(self.saxonArmy)
+        rda = vka.receiveDamage(saa.strenght)
+        if vka.health <= 0:
+            VikingArmy.remove(vka)
+        else:
+            pass
+        return [rda, saa.strenght]
+    def showStatus(self):
+        if len(saxonArmy) == 0:
+            return "Vikings have won the war of the century!"
+        elif len(VikingArmy) == 0:
+            return "Saxons have fought for their lives and survive another day..."
+        elif lenlen(saxonArmy) >= 1 and len(VikingArmy) >= 1:
+            "Vikings and Saxons are still in the thick of battle."
+
+
 
 
 
